@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - NHS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.svg" alt="NHS Logo">
+          NHS
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="settings.html" class="active">Settings</a></li>
+          <li><a href="../index.html#about">About</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <button class="close-menu">✕</button>
+    <ul class="mobile-menu-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Settings</h1>
+        <div class="connection-status">
+          <div class="status-indicator disconnected" id="statusIndicator"></div>
+          <span id="connectionText">Not Connected</span>
+          <button class="btn" id="connectBtn" style="margin-left: 10px;">Connect Insoles</button>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        <div class="card">
+          <h2 class="card-title">Vibration Settings</h2>
+          <div class="vibration-control">
+            <label for="vibrationIntensity">Vibration Intensity</label>
+            <div class="slider-container">
+              <input type="range" min="0" max="10" value="5" class="slider" id="vibrationIntensity">
+              <div class="vibration-level">
+                <span>Low</span>
+                <span id="intensityValue">5</span>
+                <span>High</span>
+              </div>
+            </div>
+            
+            <label for="vibrationDuration">Vibration Duration (ms)</label>
+            <div class="slider-container">
+              <input type="range" min="100" max="1000" step="50" value="300" class="slider" id="vibrationDuration">
+              <div class="vibration-level">
+                <span>Short</span>
+                <span id="durationValue">300</span>
+                <span>Long</span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary" id="testVibration">Test Vibration</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Feedback Mode</h2>
+          <div class="feedback-options">
+            <div class="option">
+              <input type="radio" id="vibrateMode" name="feedbackMode" value="vibrate" checked>
+              <label for="vibrateMode">Vibration</label>
+              <p class="option-description">Insole will vibrate when heel touches the ground</p>
+            </div>
+            
+            <div class="option">
+              <input type="radio" id="soundMode" name="feedbackMode" value="sound">
+              <label for="soundMode">Sound</label>
+              <p class="option-description">Device will play a sound when heel touches the ground</p>
+            </div>
+            
+            <div class="option">
+              <input type="radio" id="gameMode" name="feedbackMode" value="game">
+              <label for="gameMode">Game Mode</label>
+              <p class="option-description">Connect to bubble popping game on computer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Device Settings</h2>
+          <div class="device-settings">
+            <div class="setting-item">
+              <label for="deviceName">Device Name</label>
+              <input type="text" id="deviceName" value="NHS Insole">
+            </div>
+            
+            <div class="setting-item">
+              <label for="batteryLevel">Battery Level</label>
+              <div class="battery-indicator">
+                <div class="battery-level" id="batteryLevel" style="width: 75%"></div>
+              </div>
+              <span id="batteryPercentage">75%</span>
+            </div>
+            
+            <div class="setting-item">
+              <label>Firmware Version</label>
+              <span id="firmwareVersion">v1.0.2</span>
+              <button class="btn btn-outline btn-sm" id="checkUpdate">Check for Updates</button>
+            </div>
+            
+            <div class="setting-item">
+              <button class="btn btn-outline" id="resetDevice">Reset Device</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">User Profile</h2>
+          <div class="user-profile">
+            <div class="profile-setting">
+              <label for="childName">Child's Name</label>
+              <input type="text" id="childName" placeholder="Enter name">
+            </div>
+            
+            <div class="profile-setting">
+              <label for="childAge">Age</label>
+              <input type="number" id="childAge" placeholder="Age" min="1" max="18">
+            </div>
+            
+            <div class="profile-setting">
+              <label for="footSize">Foot Size</label>
+              <select id="footSize">
+                <option value="">Select size</option>
+                <option value="small">Small (US Kids 10-13)</option>
+                <option value="medium">Medium (US Kids 1-4)</option>
+                <option value="large">Large (US Kids 4.5-7)</option>
+              </select>
+            </div>
+            
+            <button class="btn" id="saveProfile">Save Profile</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-outline" id="exportData">Export Data</button>
+        <button class="btn" id="saveSettings">Save All Settings</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>NHS</h3>
+          <p>Innovative solutions for special needs</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="settings.html">Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 NHS Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/bluetooth.js"></script>
+  <script src="../js/vibration.js"></script>
+</body>
+</html>

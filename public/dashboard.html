@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />board.html
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - StepUp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/public/css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href=" /public/index.html" class="logo">
+          <img src="../images/logo.svg" alt="StepUp Logo" />
+          StepUp
+        </a>
+        <ul class="nav-links">
+          <li><a href="/public/index.html">Home</a></li>
+          <li><a href="/public//public/dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="/public//public/settings.html">Settings</a></li>
+          <li><a href=" /public/index.html#about">About</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
+ 
+  <div class="mobile-menu">
+    <button class="close-menu">✕</button>
+    <ul class="mobile-menu-links">
+      <li><a href=" /public/index.html">Home</a></li>
+      <li><a href="/public/dashboard.html">Dashboard</a></li>
+      <li><a href="/public/settings.html">Settings</a></li>
+      <li><a href=" /public/index.html#about">About</a></li>
+    </ul>
+  </div>
+ 
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <div class="connection-status">
+          <div class="status-indicator disconnected" id="statusIndicator"></div>
+          <span id="connectionText">Not Connected</span>
+          <button class="btn" id="connectBtn" style="margin-left: 10px;">Connect Insoles</button>
+        </div>
+      </div>
+ 
+      <div class="dashboard">
+        <div class="card stats-card">
+          <h2 class="card-title">Usage Statistics</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="dailySteps">0</div>
+              <div class="stat-label">Steps Today</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="heelStrikePercentage">0%</div>
+              <div class="stat-label">Heel Strike %</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="dailyUsage">0h 0m</div>
+              <div class="stat-label">Usage Today</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="streakDays">0</div>
+              <div class="stat-label">Day Streak</div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="weeklyProgressChart"></canvas>
+          </div>
+        </div>
+ 
+        <div class="card">
+          <h2 class="card-title">Today's Activity</h2>
+          <div class="chart-container">
+            <canvas id="dailyActivityChart"></canvas>
+          </div>
+        </div>
+ 
+        <div class="card">
+          <h2 class="card-title">Foot Pressure Map</h2>
+          <div class="pressure-map-container">
+            <div class="foot-illustration">
+              <img src="../images/foot-outline.svg" alt="Foot outline" />
+              <div class="pressure-points" id="pressureMap"></div>
+            </div>
+          </div>
+          <div class="pressure-legend">
+            <div class="pressure-scale">
+              <div class="scale-point low">Low</div>
+              <div class="scale-gradient"></div>
+              <div class="scale-point high">High</div>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="card">
+          <h2 class="card-title">Progress Report</h2>
+          <div class="progress-summary">
+            <p><strong>Overall Improvement:</strong> <span id="improvementRate">--</span></p>
+            <p><strong>Last Session:</strong> <span id="lastSession">--</span></p>
+            <p><strong>Next Goal:</strong> <span id="nextGoal">--</span></p>
+          </div>
+          <a href="#" class="btn btn-outline">Download Full Report</a>
+        </div>
+      </div>
+    </div>
+  </main>
+ 
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>StepUp</h3>
+          <p>Your journey to better foot health starts here.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href=" /public/index.html">Home</a></li>
+            <li><a href="/public/dashboard.html">Dashboard</a></li>
+            <li><a href="/public/settings.html">Settings</a></li>
+            <li><a href=" /public/index.html#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p>Email: support@stepup.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NHS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

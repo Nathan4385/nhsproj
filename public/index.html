@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHS - Smart Insole System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo.svg" alt="NHS Logo">
+          NHS
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/dashboard.html">Dashboard</a></li>
+          <li><a href="pages/settings.html">Settings</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <button class="close-menu">✕</button>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/dashboard.html">Dashboard</a></li>
+      <li><a href="pages/settings.html">Settings</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Technology for Special Needs</h1>
+          <p class="hero-subtitle">Helping children develop proper walking habits through interactive sensory feedback</p>
+          <div class="connection-status">
+            <div class="status-indicator disconnected" id="statusIndicator"></div>
+            <span id="connectionText">Not Connected</span>
+          </div>
+          <button class="btn" id="connectBtn">Connect Insoles</button>
+          <a href="pages/dashboard.html" class="btn btn-secondary" style="margin-left: 10px;">View Dashboard</a>
+        </div>
+        <div class="hero-image">
+          <img src="images/insole-illustration.svg" alt="Smart insole illustration">
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🦶</div>
+            <h3 class="card-title">Pressure Sensing</h3>
+            <p>Advanced sensors detect where pressure is applied on the foot, helping track toe-walking habits.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">Real-time Feedback</h3>
+            <p>Instant haptic feedback encourages proper heel-to-toe walking patterns.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <h3 class="card-title">Progress Tracking</h3>
+            <p>Monitor improvement over time with detailed statistics and visualization tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Product</h2>
+        <p>The product is an innovative insole system designed to help children with autism who toe-walk develop proper walking habits through gentle sensory feedback. Our system provides vibration when the heel touches the ground, encouraging proper gait development through positive reinforcement.</p>
+        <p>Currently at the desktop prototype phase and being developed in collaboration with 4D Products, our insoles connect via Bluetooth to this interface, allowing parents and therapists to customize settings and track progress.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>NHS</h3>
+          <p>Innovative solutions for special needs</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/dashboard.html">Dashboard</a></li>
+            <li><a href="pages/settings.html">Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; NHS Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/bluetooth.js"></script>
+</body>
+</html>
