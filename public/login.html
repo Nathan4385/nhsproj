@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +15,43 @@
       display: block;
     }
   </style>
+=======
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHS - Sign In</title>
+  <link rel="stylesheet" href="css/login.css">
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
 </head>
 <body>
   <div class="login-container">
     <!-- Logo Section -->
     <div class="logo-section">
       <div class="logo">
+<<<<<<< HEAD
         <img src="images/logo.svg" alt="NHS Logo" />
+=======
+        <img src="images/logo.svg" alt="NHS Logo">
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
         <h1>NHS</h1>
       </div>
       <p class="logo-subtitle">Sign in to your account</p>
     </div>
 
+<<<<<<< HEAD
     <!-- Login & Signup Forms Container -->
     <div class="login-card">
 
       <!-- Sign In Form -->
       <form id="loginForm" class="form active-form">
+=======
+    <!-- Login Form -->
+    <div class="login-card">
+      <form id="loginForm">
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
         <div class="form-group">
           <label for="email" class="form-label">Email</label>
           <input
@@ -39,7 +60,11 @@
             class="form-input"
             placeholder="Enter your email"
             required
+<<<<<<< HEAD
           />
+=======
+          >
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
         </div>
 
         <div class="form-group">
@@ -50,18 +75,27 @@
             class="form-input"
             placeholder="Enter your password"
             required
+<<<<<<< HEAD
           />
+=======
+          >
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
         </div>
 
         <div class="checkbox-group">
           <div class="checkbox-wrapper">
+<<<<<<< HEAD
             <input type="checkbox" id="remember" class="checkbox" />
+=======
+            <input type="checkbox" id="remember" class="checkbox">
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
             <label for="remember" class="checkbox-label">Remember me</label>
           </div>
           <a href="#" class="forgot-link">Forgot password?</a>
         </div>
 
         <button type="submit" class="btn">Sign In</button>
+<<<<<<< HEAD
 
         <p class="form-toggle">
           Don't have an account?
@@ -111,6 +145,16 @@
           <a href="#" id="showLogin">Sign in</a>
         </p>
       </form>
+=======
+      </form>
+
+      <div class="signup-section">
+        <p class="signup-text">
+          Don't have an account?
+          <a href="#" class="signup-link">Sign up</a>
+        </p>
+      </div>
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
 
       <a href="index.html" class="back-link">← Back to Home</a>
     </div>
@@ -120,6 +164,7 @@
       <p>&copy; 2023 NHS Technology. All rights reserved.</p>
     </div>
   </div>
+<<<<<<< HEAD
 
   <script>
     // Toggle between forms
@@ -178,5 +223,38 @@
       });
     });
   </script>
+=======
+  <script>
+  document.getElementById('loginForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message);
+        // Redirect or handle successful login
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error connecting to server');
+    }
+  });
+</script>
+
+>>>>>>> e1e4ca55bf66b45561463abdd0ac5bb541e7b8dd
 </body>
 </html>
