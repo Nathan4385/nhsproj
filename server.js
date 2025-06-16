@@ -8,6 +8,7 @@ const User = require("./models/user");
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+app.use(express.static("public"));
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -64,7 +65,7 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
-  }
+  }s
 });
 
 app.listen(PORT, '0.0.0.0', () => {
