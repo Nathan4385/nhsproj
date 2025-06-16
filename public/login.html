@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NHS - Sign In / Sign Up</title>
+  <link rel="stylesheet" href="/public/css/styles.css" />
+  <style>
+    /* Basic styles to hide/show forms */
+    .hidden {
+      display: none;
+    }
+    .active-form {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo">
+        <img src="images/logo.svg" alt="NHS Logo" />
+        <h1>NHS</h1>
+      </div>
+      <p class="logo-subtitle">Sign in to your account</p>
+    </div>
+
+    <!-- Login & Signup Forms Container -->
+    <div class="login-card">
+
+      <!-- Sign In Form -->
+      <form id="loginForm" class="form active-form">
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-input"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div class="checkbox-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="remember" class="checkbox" />
+            <label for="remember" class="checkbox-label">Remember me</label>
+          </div>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn">Sign In</button>
+
+        <p class="form-toggle">
+          Don't have an account?
+          <a href="#" id="showSignup">Sign up</a>
+        </p>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signupForm" class="form hidden">
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-input"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            id="signupEmail"
+            class="form-input"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            class="form-input"
+            placeholder="Create a password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Sign Up</button>
+
+        <p class="form-toggle">
+          Already have an account?
+          <a href="#" id="showLogin">Sign in</a>
+        </p>
+      </form>
+
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2023 NHS Technology. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    // Toggle between forms
+    document.getElementById('showSignup').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('signupForm').classList.remove('hidden');
+      document.querySelector('.logo-subtitle').textContent = 'Create a new account';
+    });
+
+    document.getElementById('showLogin').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('signupForm').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+      document.querySelector('.logo-subtitle').textContent = 'Sign in to your account';
+    });
+
+    // Login form submit handler
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const rememberMe = document.getElementById('remember').checked;
+
+      console.log('Login attempt:', { email, password, rememberMe });
+
+      alert('Login functionality would be implemented here.');
+      // window.location.href = 'dashboard.html';
+    });
+
+    // Signup form submit handler
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+
+      console.log('Sign up attempt:', { name, email, password });
+
+      alert('Signup functionality would be implemented here.');
+      // window.location.href = 'dashboard.html';
+    });
+
+    // Input focus/blur style handling
+    const inputs = document.querySelectorAll('.form-input');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function () {
+        this.style.borderColor = 'var(--primary)';
+      });
+      input.addEventListener('blur', function () {
+        if (!this.value) {
+          this.style.borderColor = 'var(--border-color)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
