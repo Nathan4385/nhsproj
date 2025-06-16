@@ -6,17 +6,15 @@ const cors = require("cors");
 const User = require("./models/user");
 
 const app = express();
-const PORT = process.env.PORT || 3000;  // <--- Updated here
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-// NOTE: On Render, you likely need to connect to a remote MongoDB Atlas instance,
-// not a local MongoDB at 127.0.0.1
+// Connect to MongoDB Atlas using environment variable
 mongoose
-  .connect("mongodb://127.0.0.1:27017/nhs-login", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -66,6 +64,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.listen(PORT, '0.0.0.0', () => {
+// Listen on all interfaces for Render deployment
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
