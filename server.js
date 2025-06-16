@@ -6,13 +6,15 @@ const cors = require("cors");
 const User = require("./models/user");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB Atlas using environment variable
+// Debug log
+console.log("Connecting to:", process.env.MONGO_URI);
+
+// MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -20,6 +22,11 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB connection error:", err));
+
+// Root route
+app.get("/", (req, res) => {
+  res.send("Welcome to the NHS Login API");
+});
 
 // Signup route
 app.post("/signup", async (req, res) => {
@@ -32,11 +39,7 @@ app.post("/signup", async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({
-      email,
-      password: hashedPassword
-    });
-
+    const newUser = new User({ email, password: hashedPassword });
     await newUser.save();
 
     res.status(201).json({ message: "User registered successfully" });
@@ -64,7 +67,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// Listen on all interfaces for Render deployment
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
