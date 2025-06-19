@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
         vibrationIntensity: document.getElementById('vibrationIntensity')?.value || 5,
         vibrationDuration: document.getElementById('vibrationDuration')?.value || 300,
         feedbackMode: document.querySelector('input[name="feedbackMode"]:checked')?.value || 'vibrate',
-        deviceName: document.getElementById('deviceName')?.value || 'StepUp Insole',
+        deviceName: document.getElementById('deviceName')?.value || 'NHS Insole',
         childName: document.getElementById('childName')?.value || '',
         childAge: document.getElementById('childAge')?.value || '',
         footSize: document.getElementById('footSize')?.value || ''
       };
   
-      localStorage.setItem('stepUpSettings', JSON.stringify(settings));
+      localStorage.setItem('NHSSettings', JSON.stringify(settings));
       console.log('Settings saved:', settings);
       
       // Show save confirmation
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Load settings from localStorage
     const loadSettings = function() {
-      const savedSettings = localStorage.getItem('stepUpSettings');
+      const savedSettings = localStorage.getItem('NHSSettings');
       if (savedSettings) {
         try {
           const settings = JSON.parse(savedSettings);
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           const deviceName = document.getElementById('deviceName');
           if (deviceName) {
-            deviceName.value = settings.deviceName || 'StepUp Insole';
+            deviceName.value = settings.deviceName || 'NHS Insole';
           }
           
           const childName = document.getElementById('childName');
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dailyAverageSteps: 1234,
         weeklyProgress: [65, 68, 70, 73, 75, 76, 78]
       },
-      settings: JSON.parse(localStorage.getItem('stepUpSettings') || '{}'),
+      settings: JSON.parse(localStorage.getItem('NHSSettings') || '{}'),
       exportDate: new Date().toISOString()
     };
     
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(userData, null, 2));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "stepup_data_export.json");
+    downloadAnchorNode.setAttribute("download", "NHS_data_export.json");
     document.body.appendChild(downloadAnchorNode);
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Reset device function
   function resetDevice() {
     // Clear settings
-    localStorage.removeItem('stepUpSettings');
+    localStorage.removeItem('NHSSettings');
     
     // Reset UI to defaults
     const vibrationIntensity = document.getElementById('vibrationIntensity');
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const deviceName = document.getElementById('deviceName');
     if (deviceName) {
-      deviceName.value = 'StepUp Insole';
+      deviceName.value = 'NHS Insole';
     }
     
     // Show confirmation
